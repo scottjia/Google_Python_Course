@@ -42,10 +42,8 @@ def front_x(words):
   x_list = []
   no_x_list = []
   for s in words:
-    if s[0] == 'x':
-      x_list.append(s)
-    else:
-      no_x_list.append(s)
+    if s[0] == 'x': x_list.append(s)
+    else: no_x_list.append(s)
   x_list.sort()
   no_x_list.sort()
   return x_list + no_x_list
@@ -60,16 +58,10 @@ def front_x(words):
 # Hint: use a custom key= function to extract the last element form each tuple.
 def sort_last(tuples):
   # +++your code here+++
-  dict_t = {}
-  index_t = 0
-  s_l = []
-  for t in tuples:
-    dict_t[t[-1]]=index_t
-    index_t += 1 
-  for k in sorted(dict_t):
-    s_l.append(tuples[dict_t[k]])
-  return s_l
-
+  def mykey(t):
+    return t[-1]
+  return sorted(tuples, key=mykey)
+  
 
 # Simple provided test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
